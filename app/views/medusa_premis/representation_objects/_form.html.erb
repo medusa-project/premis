@@ -1,0 +1,137 @@
+<%= form_for(@medusa_premis_representation_object) do |f| %>
+  <% if @medusa_premis_representation_object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medusa_premis_representation_object.errors.count, "error") %> prohibited this medusa_premis_representation_object from being saved:</h2>
+
+      <ul>
+      <% @medusa_premis_representation_object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :identifierType, "Representation Object Identifier Type" %><br />
+    <% @medusa_premis_representation_object.identifierType.each do |type| %>
+      <%= text_field_tag "medusa_premis_representation_object[identifierType][]", type %>
+    <% end %>
+    <% if @medusa_premis_representation_object.identifierType.empty? %>
+          <%= text_field_tag "medusa_premis_representation_object[identifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :identifierValue, "Representation Object Identifier Value" %><br />
+    <% @medusa_premis_representation_object.identifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[identifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.identifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[identifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectPreservationLevelValue, "Preservation Level Value" %><br />
+    <% @medusa_premis_representation_object.objectPreservationLevelValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectPreservationLevelValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectPreservationLevelValue.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectPreservationLevelValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectPreservationLevelRationale, "Preservation Level Rationale" %><br />
+    <% @medusa_premis_representation_object.objectPreservationLevelRationale.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectPreservationLevelRationale][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectPreservationLevelRationale.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectPreservationLevelRationale][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectPreservationLevelDateAssigned, "Preservation Level Date" %><br />
+    <% @medusa_premis_representation_object.objectPreservationLevelDateAssigned.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectPreservationLevelDateAssigned][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectPreservationLevelDateAssigned.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectPreservationLevelDateAssigned][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectOriginalName, "Original Name" %><br />
+    <% @medusa_premis_representation_object.objectOriginalName.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectOriginalName][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectOriginalName.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectOriginalName][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkingIntellectualEntityIdentifierType, "Intellectual Entity Type" %><br />
+    <% @medusa_premis_representation_object.linkingIntellectualEntityIdentifierType.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[linkingIntellectualEntityIdentifierType][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.linkingIntellectualEntityIdentifierType.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[linkingIntellectualEntityIdentifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkingIntellectualEntityIdentifierValue, "Intellectual Entity Value" %><br />
+    <% @medusa_premis_representation_object.linkingIntellectualEntityIdentifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[linkingIntellectualEntityIdentifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.linkingIntellectualEntityIdentifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[linkingIntellectualEntityIdentifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelationshipType, "Relationship Type" %><br />
+    <% @medusa_premis_representation_object.objectRelationshipType.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelationshipType][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectRelationshipType.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelationshipType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelationshipSubType, "Relationship Sub Type" %><br />
+    <% @medusa_premis_representation_object.objectRelationshipSubType.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelationshipSubType][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectRelationshipSubType.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelationshipSubType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelatedObjectIdentifierType, "Related Object Type" %><br />
+    <% @medusa_premis_representation_object.objectRelatedObjectIdentifierType.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelatedObjectIdentifierType][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectRelatedObjectIdentifierType.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelatedObjectIdentifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelatedObjectIdentifierValue, "Related Object Value" %><br />
+    <% @medusa_premis_representation_object.objectRelatedObjectIdentifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelatedObjectIdentifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_representation_object.objectRelatedObjectIdentifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_representation_object[objectRelatedObjectIdentifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

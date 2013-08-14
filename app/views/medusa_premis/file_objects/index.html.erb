@@ -1,0 +1,26 @@
+<h1>Listing medusa_premis_file_objects</h1>
+
+<table>
+  <tr>
+    <th>identifiertype</th>
+    <th>identifiervalue</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @medusa_premis_file_objects.each do |medusa_premis_file_object| %>
+  <tr>
+      <td><%= medusa_premis_file_object.identifierType %></td>
+      <td><%= medusa_premis_file_object.identifierValue %></td>
+
+    <td><%= link_to 'Show', medusa_premis_file_object %></td>
+    <td><%= link_to 'Edit', edit_medusa_premis_file_object_path(medusa_premis_file_object) %></td>
+    <td><%= link_to 'Destroy', medusa_premis_file_object, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New File Object', new_medusa_premis_file_object_path %>

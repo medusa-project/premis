@@ -1,0 +1,270 @@
+<%= form_for(@medusa_premis_file_object) do |f| %>
+  <% if @medusa_premis_file_object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medusa_premis_file_object.errors.count, "error") %> prohibited this medusa_premis_file_object from being saved:</h2>
+
+      <ul>
+      <% @medusa_premis_file_object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :identifierType, "File Object Identifier Type" %><br />
+    <% @medusa_premis_file_object.identifierType.each do |type| %>
+      <%= text_field_tag "medusa_premis_file_object[identifierType][]", type %>
+    <% end %>
+    <% if @medusa_premis_file_object.identifierType.empty? %>
+          <%= text_field_tag "medusa_premis_file_object[identifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :identifierValue, "File Object Identifier Value" %><br />
+    <% @medusa_premis_file_object.identifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[identifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.identifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[identifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_CompositionLevel, "Object Compositional Level" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_CompositionLevel.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_CompositionLevel][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_CompositionLevel.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_CompositionLevel][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_fixitymessageDigestAlgorithm, "Digest Algorithm" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_fixitymessageDigestAlgorithm.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_fixitymessageDigestAlgorithm][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_fixitymessageDigestAlgorithm.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_fixitymessageDigestAlgorithm][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_fixitymessageDigest, "Digest" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_fixitymessageDigest.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_fixitymessageDigest][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_fixitymessageDigest.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_fixitymessageDigest][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_fixitymessageDigestOriginator, "Digest Originator" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_fixitymessageDigestOriginator.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_fixitymessageDigestOriginator][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_fixitymessageDigestOriginator.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_fixitymessageDigestOriginator][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_size, "Size" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_size.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_size][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_size.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_size][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_formatName, "Format Name" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_formatName.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatName][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_formatName.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatName][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_formatVersion, "Format Version" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_formatVersion.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatVersion][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_formatVersion.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatVersion][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_formatRegistryName, "Format Registry Name" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_formatRegistryName.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatRegistryName][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_formatRegistryName.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatRegistryName][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_formatRegistryKey, "Format Registry Key" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_formatRegistryKey.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatRegistryKey][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_formatRegistryKey.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatRegistryKey][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_formatRegistryRole, "Format Registry Role" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_formatRegistryRole.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatRegistryRole][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_formatRegistryRole.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_formatRegistryRole][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_creatingApplicationName, "Creating Application Name" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_creatingApplicationName.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_creatingApplicationName][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_creatingApplicationName.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_creatingApplicationName][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_creatingApplicationVersion, "Creating Application Version" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_creatingApplicationVersion.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_creatingApplicationVersion][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_creatingApplicationVersion.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_creatingApplicationVersion][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectCharacteristics_dateCreatedByApplication, "Date Created by Application" %><br />
+    <% @medusa_premis_file_object.objectCharacteristics_dateCreatedByApplication.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_dateCreatedByApplication][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectCharacteristics_dateCreatedByApplication.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectCharacteristics_dateCreatedByApplication][]", nil %>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="field">
+    <%= f.label :objectPreservationLevelValue, "Preservation Level Value" %><br />
+    <% @medusa_premis_file_object.objectPreservationLevelValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectPreservationLevelValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectPreservationLevelValue.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectPreservationLevelValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectPreservationLevelRationale, "Preservation Level Rationale" %><br />
+    <% @medusa_premis_file_object.objectPreservationLevelRationale.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectPreservationLevelRationale][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectPreservationLevelRationale.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectPreservationLevelRationale][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectPreservationLevelDateAssigned, "Preservation Level Date" %><br />
+    <% @medusa_premis_file_object.objectPreservationLevelDateAssigned.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectPreservationLevelDateAssigned][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectPreservationLevelDateAssigned.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectPreservationLevelDateAssigned][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectOriginalName, "Original Name" %><br />
+    <% @medusa_premis_file_object.objectOriginalName.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectOriginalName][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectOriginalName.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectOriginalName][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkingIntellectualEntityIdentifierType, "Intellectual Entity Type" %><br />
+    <% @medusa_premis_file_object.linkingIntellectualEntityIdentifierType.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierType][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.linkingIntellectualEntityIdentifierType.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkingIntellectualEntityIdentifierValue, "Intellectual Entity Value" %><br />
+    <% @medusa_premis_file_object.linkingIntellectualEntityIdentifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.linkingIntellectualEntityIdentifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelationshipType, "Relationship Type" %><br />
+    <% @medusa_premis_file_object.objectRelationshipType.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelationshipType][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectRelationshipType.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelationshipType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelationshipSubType, "Relationship Sub Type" %><br />
+    <% @medusa_premis_file_object.objectRelationshipSubType.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelationshipSubType][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectRelationshipSubType.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelationshipSubType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelatedObjectIdentifierType, "Related Object Type" %><br />
+    <% @medusa_premis_file_object.objectRelatedObjectIdentifierType.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierType][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectRelatedObjectIdentifierType.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objectRelatedObjectIdentifierValue, "Related Object Value" %><br />
+    <% @medusa_premis_file_object.objectRelatedObjectIdentifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_file_object.objectRelatedObjectIdentifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

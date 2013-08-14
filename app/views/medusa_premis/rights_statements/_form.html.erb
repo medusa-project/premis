@@ -1,0 +1,87 @@
+<%= form_for(@medusa_premis_rights_statement) do |f| %>
+  <% if @medusa_premis_rights_statement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medusa_premis_rights_statement.errors.count, "error") %> prohibited this medusa_premis_rights_statement from being saved:</h2>
+
+      <ul>
+      <% @medusa_premis_rights_statement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :identifierType, "Rights Statement Identifier Type" %><br />
+    <% @medusa_premis_rights_statement.identifierType.each do |type| %>
+      <%= text_field_tag "medusa_premis_rights_statement[identifierType][]", type %>
+    <% end %>
+    <% if @medusa_premis_rights_statement.identifierType.empty? %>
+          <%= text_field_tag "medusa_premis_rights_statement[identifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :identifierValue, "Rights Statement Identifier Value" %><br />
+    <% @medusa_premis_rights_statement.identifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_rights_statement[identifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_rights_statement.identifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_rights_statement[identifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rightsStatementBasis, "Basis" %><br />
+    <% @medusa_premis_rights_statement.rightsStatementBasis.each do |value| %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementBasis][]", value %>
+    <% end %>
+    <% if @medusa_premis_rights_statement.rightsStatementBasis.empty? %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementBasis][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rightsStatementCopyrightStatus, "Copyright Status" %><br />
+    <% @medusa_premis_rights_statement.rightsStatementCopyrightStatus.each do |value| %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementCopyrightStatus][]", value %>
+    <% end %>
+    <% if @medusa_premis_rights_statement.rightsStatementCopyrightStatus.empty? %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementCopyrightStatus][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rightsStatementCopyrightJurisdiction, "Copyright Jurisdiction" %><br />
+    <% @medusa_premis_rights_statement.rightsStatementCopyrightJurisdiction.each do |value| %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementCopyrightJurisdiction][]", value %>
+    <% end %>
+    <% if @medusa_premis_rights_statement.rightsStatementCopyrightJurisdiction.empty? %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementCopyrightJurisdiction][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rightsStatementLinkingObjectIdentifierType_GrantedAct, "Granted Act" %><br />
+    <% @medusa_premis_rights_statement.rightsStatementLinkingObjectIdentifierType_GrantedAct.each do |value| %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementLinkingObjectIdentifierType_GrantedAct][]", value %>
+    <% end %>
+    <% if @medusa_premis_rights_statement.rightsStatementLinkingObjectIdentifierType_GrantedAct.empty? %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementLinkingObjectIdentifierType_GrantedAct][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rightsStatementGrantedRestriction, "Granted Restriction" %><br />
+    <% @medusa_premis_rights_statement.rightsStatementGrantedRestriction.each do |value| %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementGrantedRestriction][]", value %>
+    <% end %>
+    <% if @medusa_premis_rights_statement.rightsStatementGrantedRestriction.empty? %>
+      <%= text_field_tag "medusa_premis_rights_statement[rightsStatementGrantedRestriction][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

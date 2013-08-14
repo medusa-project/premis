@@ -1,0 +1,26 @@
+<h1>Listing medusa_premis_events</h1>
+
+<table>
+  <tr>
+    <th>identifiertype</th>
+    <th>identifiervalue</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @medusa_premis_events.each do |medusa_premis_event| %>
+  <tr>
+      <td><%= medusa_premis_event.identifierType %></td>
+      <td><%= medusa_premis_event.identifierValue %></td>
+
+    <td><%= link_to 'Show', medusa_premis_event %></td>
+    <td><%= link_to 'Edit', edit_medusa_premis_event_path(medusa_premis_event) %></td>
+    <td><%= link_to 'Destroy', medusa_premis_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event statement', new_medusa_premis_event_path %>

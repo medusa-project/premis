@@ -1,0 +1,26 @@
+<h1>Listing medusa_premis_rights_statements</h1>
+
+<table>
+  <tr>
+    <th>Statementidentifiertype</th>
+    <th>Statementidentifiervalue</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @medusa_premis_rights_statements.each do |medusa_premis_rights_statement| %>
+  <tr>
+      <td><%= medusa_premis_rights_statement.identifierType %></td>
+      <td><%= medusa_premis_rights_statement.identifierValue %></td>
+
+    <td><%= link_to 'Show', medusa_premis_rights_statement %></td>
+    <td><%= link_to 'Edit', edit_medusa_premis_rights_statement_path(medusa_premis_rights_statement) %></td>
+    <td><%= link_to 'Destroy', medusa_premis_rights_statement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rights statement', new_medusa_premis_rights_statement_path %>

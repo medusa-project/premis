@@ -1,0 +1,2 @@
+module MedusaPremis::RightsStatementsHelper
+end

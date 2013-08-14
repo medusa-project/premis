@@ -1,0 +1,26 @@
+<h1>Listing medusa_premis_agents</h1>
+
+<table>
+  <tr>
+    <th>Identifiertype</th>
+    <th>Identifiervalue</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @medusa_premis_agents.each do |medusa_premis_agent| %>
+  <tr>
+      <td><%= medusa_premis_agent.identifierType %></td>
+      <td><%= medusa_premis_agent.identifierValue %></td>
+
+    <td><%= link_to 'Show', medusa_premis_agent %></td>
+    <td><%= link_to 'Edit', edit_medusa_premis_agent_path(medusa_premis_agent) %></td>
+    <td><%= link_to 'Destroy', medusa_premis_agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Agent', new_medusa_premis_agent_path %>

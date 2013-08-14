@@ -1,0 +1,88 @@
+# The default namespace maps to the default namespace for generating rels_ext from solr
+:default_namespace: info:fedora/fedora-system:def/relations-external#
+
+# namespace mappings--- 
+# you can add specific mappings for your institution by providing the following:
+#   namespace_uri:
+#     :relationship_symbol: relationship_identifier
+# 
+# For example, if you have the following element in your rels_ext:
+#  
+#  <oai:itemID>oai:example.edu:changeme:500</oai:itemID>
+# 
+# With the last two lines of this file uncommented, the relationships hash of your object will include:
+#   :oai_item_id => ["info:fedora/oai:example.edu:changeme:500"]
+#
+:predicate_mapping:
+# http://multimedialab.elis.ugent.be/users/samcoppe/ontologies/Premis/premis.owl#: 
+  http://www.loc.gov/premis/rdf/v1#: 
+    :linking_object: hasObject
+    :linking_event: hasEvent
+    :linking_rights_statement: hasRightsStatement
+    :linking_agent: hasAgent
+# http://medusa.library.illinois.edu/ns#: 
+  http://medusa.library.illinois.edu/ns/v1#: 
+    :collection_is_member_of: collectionIsMemberOf
+    :derivation_has_source: derivationHasSource
+    :derivation_has_source_hasevent: derivationHasSourceHasevent
+    :metadata_checksums: metadataChecksums
+    :metadata_image_tech: metadataImageTech
+    :metadata_marc: metadataMarc
+    :metadata_mods: metadataMods
+    :paged_text_asset_hires_pdf: pagedTextAssetHiresPdf
+    :paged_text_asset_ocr: pagedTextAssetOcr
+    :paged_text_asset_optimized_pdf: pagedTextAssetOptimizedPdf
+    :paged_text_asset_pages: pagedTextAssetPages
+    :paged_text_asset_parent: pagedTextAssetParent
+    :paged_text_asset_tei: pagedTextAssetTei
+    :linking_folder_object: metadataParent
+# info:premis#: 
+#    :has_container: hasContainer
+#    :is_contained_in: isContainedIn
+#    :linking_event: linkingEvent
+#    :has_rights_in: hasRightsIn
+#    :has_rights: hasRights
+#    :is_agent_of: isAgentOf
+#    :has_agent: hasAgent
+  info:fedora/fedora-system:def/relations-external#: 
+    :conforms_to: conformsTo
+    :has_annotation: hasAnnotation
+    :has_collection_member: hasCollectionMember
+    :has_constituent: hasConstituent
+    :has_dependent: hasDependent
+    :has_derivation: hasDerivation
+    :has_description: hasDescription
+    :has_equivalent: hasEquivalent
+    :has_metadata: hasMetadata
+    :has_member: hasMember
+    :has_model: hasModel
+    :has_part: hasPart
+    :has_subset: hasSubset
+    :is_annotation_of: isAnnotationOf
+    :is_constituent_of: isConstituentOf
+    :is_dependent_of: isDependentOf
+    :is_derivation_of: isDerivationOf
+    :is_description_of: isDescriptionOf
+    :is_member_of: isMemberOf
+    :is_member_of_collection: isMemberOfCollection
+    :is_metadata_for: isMetadataFor
+    :is_part_of: isPartOf
+    :is_subset_of: isSubsetOf
+    :is_topic_of: isTopicOf
+  info:fedora/fedora-system:def/model#:
+    :is_contractor_of: isContractorOf
+    :is_deployment_of: isDeploymentOf
+    :has_service: hasService
+    :has_model: hasModel
+  http://www.openarchives.org/OAI/2.0/: 
+    :oai_item_id: itemID
+  http://projecthydra.org/ns/relations#:
+    :is_governed_by: isGovernedBy
+    :is_image_of: isImageOf
+    :has_image: hasImage
+:predicate_namespaces:
+#   :premis: http://multimedialab.elis.ugent.be/users/samcoppe/ontologies/Premis/premis.owl# 
+    :premis: http://www.loc.gov/premis/rdf/v1# 
+    :fedora-model: info:fedora/fedora-system:def/model#
+#   :medusa: http://medusa.library.illinois.edu/ns#
+    :medusa: http://medusa.library.illinois.edu/ns/v1#

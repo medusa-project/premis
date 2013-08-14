@@ -1,0 +1,97 @@
+<%= form_for(@medusa_premis_event) do |f| %>
+  <% if @medusa_premis_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medusa_premis_event.errors.count, "error") %> prohibited this medusa_premis_event from being saved:</h2>
+
+      <ul>
+      <% @medusa_premis_event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :identifierType, "Event Identifier Type" %><br />
+    <% @medusa_premis_event.identifierType.each do |type| %>
+      <%= text_field_tag "medusa_premis_event[identifierType][]", type %>
+    <% end %>
+    <% if @medusa_premis_event.identifierType.empty? %>
+          <%= text_field_tag "medusa_premis_event[identifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :identifierValue, "Event Identifier Value" %><br />
+    <% @medusa_premis_event.identifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_event[identifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_event.identifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_event[identifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eventType, "Type" %><br />
+    <% @medusa_premis_event.eventType.each do |value| %>
+      <%= text_field_tag "medusa_premis_event[eventType][]", value %>
+    <% end %>
+    <% if @medusa_premis_event.eventType.empty? %>
+      <%= text_field_tag "medusa_premis_event[eventType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eventDateTime, "Date & Time" %><br />
+    <% @medusa_premis_event.eventDateTime.each do |value| %>
+      <%= text_field_tag "medusa_premis_event[eventDateTime][]", value %>
+    <% end %>
+    <% if @medusa_premis_event.eventDateTime.empty? %>
+      <%= text_field_tag "medusa_premis_event[eventDateTime][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eventDetail, "Detail" %><br />
+    <% @medusa_premis_event.eventDetail.each do |value| %>
+      <%= text_field_tag "medusa_premis_event[eventDetail][]", value %>
+    <% end %>
+    <% if @medusa_premis_event.eventDetail.empty? %>
+      <%= text_field_tag "medusa_premis_event[eventDetail][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eventOutcome, "Outcome" %><br />
+    <% @medusa_premis_event.eventOutcome.each do |value| %>
+      <%= text_field_tag "medusa_premis_event[eventOutcome][]", value %>
+    <% end %>
+    <% if @medusa_premis_event.eventOutcome.empty? %>
+      <%= text_field_tag "medusa_premis_event[eventOutcome][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eventOutcomeDetailNote, "Outcome Detail Note" %><br />
+    <% @medusa_premis_event.eventOutcomeDetailNote.each do |value| %>
+      <%= text_field_tag "medusa_premis_event[eventOutcomeDetailNote][]", value %>
+    <% end %>
+    <% if @medusa_premis_event.eventOutcomeDetailNote.empty? %>
+      <%= text_field_tag "medusa_premis_event[eventOutcomeDetailNote][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eventOutcomeDetailExtension, "Outcome Detail Extension" %><br />
+    <% @medusa_premis_event.eventOutcomeDetailExtension.each do |value| %>
+      <%= text_field_tag "medusa_premis_event[eventOutcomeDetailExtension][]", value %>
+    <% end %>
+    <% if @medusa_premis_event.eventOutcomeDetailExtension.empty? %>
+      <%= text_field_tag "medusa_premis_event[eventOutcomeDetailExtension][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

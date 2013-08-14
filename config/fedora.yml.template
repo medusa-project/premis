@@ -1,0 +1,14 @@
+development:
+  user: xxx
+  password: yyy
+  url: http://127.0.0.1:8983/fedora
+test: &TEST  
+  user: xxx
+  password: yyy
+  url: <%= "http://127.0.0.1:#{ENV['TEST_JETTY_PORT'] || 8983}/fedora-test" %>
+production:
+  user: xxx
+  password: yyy
+  url: http://your.production.server:8080/fedora
+cucumber:
+  <<: *TEST

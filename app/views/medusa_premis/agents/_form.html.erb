@@ -1,0 +1,77 @@
+<%= form_for(@medusa_premis_agent) do |f| %>
+  <% if @medusa_premis_agent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medusa_premis_agent.errors.count, "error") %> prohibited this medusa_premis_agent from being saved:</h2>
+
+      <ul>
+      <% @medusa_premis_agent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :identifierType, "Agent Identifier Type" %><br />
+    <% @medusa_premis_agent.identifierType.each do |type| %>
+      <%= text_field_tag "medusa_premis_agent[identifierType][]", type %>
+    <% end %>
+    <% if @medusa_premis_agent.identifierType.empty? %>
+          <%= text_field_tag "medusa_premis_agent[identifierType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :identifierValue, "Agent Identifier Value" %><br />
+    <% @medusa_premis_agent.identifierValue.each do |value| %>
+      <%= text_field_tag "medusa_premis_agent[identifierValue][]", value %>
+    <% end %>
+    <% if @medusa_premis_agent.identifierValue.empty? %>
+      <%= text_field_tag "medusa_premis_agent[identifierValue][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :agentName, "Name" %><br />
+    <% @medusa_premis_agent.agentName.each do |value| %>
+      <%= text_field_tag "medusa_premis_agent[agentName][]", value %>
+    <% end %>
+    <% if @medusa_premis_agent.agentName.empty? %>
+      <%= text_field_tag "medusa_premis_agent[agentName][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :agentNote, "Note" %><br />
+    <% @medusa_premis_agent.agentNote.each do |value| %>
+      <%= text_field_tag "medusa_premis_agent[agentNote][]", value %>
+    <% end %>
+    <% if @medusa_premis_agent.agentNote.empty? %>
+      <%= text_field_tag "medusa_premis_agent[agentNote][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :agentExtension, "Extension" %><br />
+    <% @medusa_premis_agent.agentExtension.each do |value| %>
+      <%= text_field_tag "medusa_premis_agent[agentExtension][]", value %>
+    <% end %>
+    <% if @medusa_premis_agent.agentExtension.empty? %>
+      <%= text_field_tag "medusa_premis_agent[agentExtension][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :agentType, "Type" %><br />
+    <% @medusa_premis_agent.agentType.each do |value| %>
+      <%= text_field_tag "medusa_premis_agent[agentType][]", value %>
+    <% end %>
+    <% if @medusa_premis_agent.agentType.empty? %>
+      <%= text_field_tag "medusa_premis_agent[agentType][]", nil %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
