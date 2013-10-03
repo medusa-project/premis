@@ -204,66 +204,6 @@
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :linkingIntellectualEntityIdentifierType, "Intellectual Entity Type" %><br />
-    <% @medusa_premis_file_object.linkingIntellectualEntityIdentifierType.each do |value| %>
-      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierType][]", value %>
-    <% end %>
-    <% if @medusa_premis_file_object.linkingIntellectualEntityIdentifierType.empty? %>
-      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierType][]", nil %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :linkingIntellectualEntityIdentifierValue, "Intellectual Entity Value" %><br />
-    <% @medusa_premis_file_object.linkingIntellectualEntityIdentifierValue.each do |value| %>
-      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierValue][]", value %>
-    <% end %>
-    <% if @medusa_premis_file_object.linkingIntellectualEntityIdentifierValue.empty? %>
-      <%= text_field_tag "medusa_premis_file_object[linkingIntellectualEntityIdentifierValue][]", nil %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :objectRelationshipType, "Relationship Type" %><br />
-    <% @medusa_premis_file_object.objectRelationshipType.each do |value| %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelationshipType][]", value %>
-    <% end %>
-    <% if @medusa_premis_file_object.objectRelationshipType.empty? %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelationshipType][]", nil %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :objectRelationshipSubType, "Relationship Sub Type" %><br />
-    <% @medusa_premis_file_object.objectRelationshipSubType.each do |value| %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelationshipSubType][]", value %>
-    <% end %>
-    <% if @medusa_premis_file_object.objectRelationshipSubType.empty? %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelationshipSubType][]", nil %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :objectRelatedObjectIdentifierType, "Related Object Type" %><br />
-    <% @medusa_premis_file_object.objectRelatedObjectIdentifierType.each do |value| %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierType][]", value %>
-    <% end %>
-    <% if @medusa_premis_file_object.objectRelatedObjectIdentifierType.empty? %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierType][]", nil %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :objectRelatedObjectIdentifierValue, "Related Object Value" %><br />
-    <% @medusa_premis_file_object.objectRelatedObjectIdentifierValue.each do |value| %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierValue][]", value %>
-    <% end %>
-    <% if @medusa_premis_file_object.objectRelatedObjectIdentifierValue.empty? %>
-      <%= text_field_tag "medusa_premis_file_object[objectRelatedObjectIdentifierValue][]", nil %>
-    <% end %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

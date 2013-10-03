@@ -91,4 +91,19 @@ class MedusaPremis::FileObjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /medusa_premis/file_objects/1/show_object
+  def show_object
+    @medusa_premis_file_object = MedusaPremis::FileObject.find(params[:id])
+
+    @full_url_of_object = @medusa_premis_file_object.inner_object.repository.config[:url] + '/' + @medusa_premis_file_object.datastreams['content'].url
+
+    # go directly to url
+    redirect_to @full_url_of_object
+
+    # respond_to do |format|
+    #   format.html # show.html.erb
+    # end
+  end
+
 end

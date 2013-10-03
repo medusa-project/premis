@@ -19,7 +19,11 @@ Premis::Application.routes.draw do
     resources :representation_objects, constraints: {id: /[A-Z,a-z0-9\.\:\-]+?/, format: /html|json|xml|rss|atom/}
     resources :file_objects, constraints: {id: /[A-Z,a-z0-9\.\:\-]+?/, format: /html|json|xml|rss|atom/}
     resources :advanced, constraints: {id: /[A-Z,a-z0-9\.\:\-]+?/, format: /html|json|xml|rss|atom/}
+    # match 'file_objects/:id/show_object' => 'file_objects#show_object', constraints: {id: /[A-Z,a-z0-9\.\:\-]+?/, format: /html|json|xml|rss|atom/}
+    get 'file_objects/:id/show_object', to: 'file_objects#show_object', :as => 'show_object', constraints: {id: /[A-Z,a-z0-9\.\:\-]+?/, format: /html|json|xml|rss|atom/}
   end
+
+
 
 
   # The priority is based upon order of creation:

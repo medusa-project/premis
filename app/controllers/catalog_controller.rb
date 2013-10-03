@@ -12,7 +12,7 @@ class CatalogController < ApplicationController
  # CatalogController.solr_search_params_logic += [:add_access_controls_to_solr_params]
   # This filters out objects that you want to exclude from search results, like FileAssets
   CatalogController.solr_search_params_logic += [:exclude_unwanted_models]
-  # CatalogController.solr_search_params_logic += [:show_rels_ext_records]
+  CatalogController.solr_search_params_logic += [:show_rels_ext_records]
 
 
   configure_blacklight do |config|
@@ -78,6 +78,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
 
     #   Common before:
+    config.add_show_field solr_name('active_fedora_model', :symbol), :label => 'Record Type', :helper_method => :display_medusa_premis_record_type
     config.add_show_field solr_name('identifierType', :stored_searchable, type: :string), :label => 'Identifier Type:'
     config.add_show_field solr_name('identifierValue', :stored_searchable, type: :string), :label => 'Identifier Value:'
 
@@ -101,20 +102,42 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('eventOutcomeDetailNote', :stored_searchable, type: :string), :label => 'Outcome Detail:'
     config.add_show_field solr_name('eventOutcomeDetailExtension', :stored_searchable, type: :string), :label => 'Outcome Detail Extension:'
 
+    # for Premis File Object:
+    config.add_show_field solr_name('objectCharacteristics_CompositionLevel', :stored_searchable, type: :string), :label => 'Compositional Level:'
+    config.add_show_field solr_name('objectCharacteristics_fixitymessageDigest', :stored_searchable, type: :string), :label => 'Digest:'
+    config.add_show_field solr_name('objectCharacteristics_fixitymessageDigestAlgorithm', :stored_searchable, type: :string), :label => 'Digest Algorithm:'
+    config.add_show_field solr_name('objectCharacteristics_fixitymessageDigestOriginator', :stored_searchable, type: :string), :label => 'Digest Originator:'
+    config.add_show_field solr_name('objectCharacteristics_size', :stored_searchable, type: :string), :label => 'Size:'
+    config.add_show_field solr_name('objectCharacteristics_formatName', :stored_searchable, type: :string), :label => 'Format Name:'
+    config.add_show_field solr_name('objectCharacteristics_formatVersion', :stored_searchable, type: :string), :label => 'Format Version:'
+    config.add_show_field solr_name('objectCharacteristics_formatRegistryName', :stored_searchable, type: :string), :label => 'Format Registry Name:'
+    config.add_show_field solr_name('objectCharacteristics_formatRegistryKey', :stored_searchable, type: :string), :label => 'Format Registry Key:'
+    config.add_show_field solr_name('objectCharacteristics_formatRegistryRole', :stored_searchable, type: :string), :label => 'Format Registry Role:'
+    config.add_show_field solr_name('objectCharacteristics_creatingApplicationName', :stored_searchable, type: :string), :label => 'Creating Application Name:'
+    config.add_show_field solr_name('objectCharacteristics_creatingApplicationVersion', :stored_searchable, type: :string), :label => 'Creating Application Version:'
+    config.add_show_field solr_name('objectCharacteristics_dateCreatedByApplication', :stored_searchable, type: :string), :label => 'Date Created By Application:'
+
+    # for both Premis File Object and Premis Representation Object
+    config.add_show_field solr_name('objectPreservationLevelValue', :stored_searchable, type: :string), :label => 'Preservation Level:'
+    config.add_show_field solr_name('objectPreservationLevelRationale', :stored_searchable, type: :string), :label => 'Preservation Level Rationale:'
+    config.add_show_field solr_name('objectPreservationLevelDateAssigned', :stored_searchable, type: :string), :label => 'Preservation Level Date Assigned:'
+    config.add_show_field solr_name('objectOriginalName', :stored_searchable, type: :string), :label => 'Original Name:'
+
     # for Related To:
-    config.add_show_field solr_name('linkingEvent', :stored_searchable, type: :string), :label => 'Linked Event:'
+    # config.add_show_field solr_name('linkingEvent', :stored_searchable, type: :string), :label => 'Linked Event:'
 
     # Common after:
-    config.add_show_field solr_name('linkingEventIdentifierType', :stored_searchable, type: :string), :label => 'Linked Event Ident Type:'
-    config.add_show_field solr_name('linkingEventIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Event Ident Value:'
-    config.add_show_field solr_name('linkingRightsStatementIdentifierType', :stored_searchable, type: :string), :label => 'Linked Rights Ident Type:'
-    config.add_show_field solr_name('linkingRightsStatementIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Rights Ident Value:'
-    config.add_show_field solr_name('linkingObjectIdentifierType', :stored_searchable, type: :string), :label => 'Linked Object Ident Type:'
-    config.add_show_field solr_name('linkingObjectIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Object Ident Value:'
-    config.add_show_field solr_name('linkingObjectRole', :stored_searchable, type: :string), :label => 'Linked Object Role:'
-    config.add_show_field solr_name('linkingAgentIdentifierType', :stored_searchable, type: :string), :label => 'Linked Agent Ident Type:'
-    config.add_show_field solr_name('linkingAgentIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Agent Ident Value:'
-    config.add_show_field solr_name('linkingAgentRole', :stored_searchable, type: :string), :label => 'Linked Agent Role:'
+    # No need to show Premis Relationship elements.  RELS-EXT has these relationships
+    # config.add_show_field solr_name('linkingEventIdentifierType', :stored_searchable, type: :string), :label => 'Linked Event Ident Type:'
+    # config.add_show_field solr_name('linkingEventIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Event Ident Value:'
+    # config.add_show_field solr_name('linkingRightsStatementIdentifierType', :stored_searchable, type: :string), :label => 'Linked Rights Ident Type:'
+    # config.add_show_field solr_name('linkingRightsStatementIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Rights Ident Value:'
+    # config.add_show_field solr_name('linkingObjectIdentifierType', :stored_searchable, type: :string), :label => 'Linked Object Ident Type:'
+    # config.add_show_field solr_name('linkingObjectIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Object Ident Value:'
+    # config.add_show_field solr_name('linkingObjectRole', :stored_searchable, type: :string), :label => 'Linked Object Role:'
+    # config.add_show_field solr_name('linkingAgentIdentifierType', :stored_searchable, type: :string), :label => 'Linked Agent Ident Type:'
+    # config.add_show_field solr_name('linkingAgentIdentifierValue', :stored_searchable, type: :string), :label => 'Linked Agent Ident Value:'
+    # config.add_show_field solr_name('linkingAgentRole', :stored_searchable, type: :string), :label => 'Linked Agent Role:'
 
 
     # "fielded" search configuration. Used by pulldown among other places.
