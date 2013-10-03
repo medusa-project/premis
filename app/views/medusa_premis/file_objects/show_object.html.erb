@@ -1,0 +1,12 @@
+<%= link_to 'Back to Record', catalog_path(@medusa_premis_file_object) %> |
+<%= link_back_to_catalog(:label=>'Back to Search') %>
+<h1>medusa_premis_file_object Display</h1>
+<hr/>
+
+
+
+<% if @medusa_premis_file_object.datastreams['content'].nil? %>
+   <h2> No object associated with this Premis File Object </h2>
+<% else %>
+  <%=  # @medusa_premis_file_object.datastreams['content'] %>
+<% end %>

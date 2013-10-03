@@ -1,0 +1,15 @@
+<%# default partial to display solr document fields in catalog show view -%>
+<dl class="dl-horizontal  dl-invert">
+  <% document_show_fields.each do |solr_fname, field| -%>
+    <% if should_render_show_field? document, field %>
+	    <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label :field => solr_fname %></dt>
+	    <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value :document => document, :field => solr_fname %></dd>
+    <% end -%>
+  <% end -%>
+  <%
+    if (display_medusa_premis_record_type(:document => document, :field => ('active_fedora_model_ssim')) == 'File Object')
+  %>
+    <dt class="MedusaPremis-contentUrl">Content Element</dt>
+    <dd class="MedusaPremis-contentUrl"><%= link_to "Click here to display object", medusa_premis_show_object_path(:id => @document), target: "_blank" %></dd>
+  <% end -%>
+</dl>
