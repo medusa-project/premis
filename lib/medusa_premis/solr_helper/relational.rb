@@ -9,8 +9,9 @@ module MedusaPremis::SolrHelper::Relational
   # solr_search_params_logic methods take two arguments
   # @param [Hash] solr_parameters a hash of parameters to be sent to Solr (via RSolr)
   # @param [Hash] user_parameters a hash of user-supplied parameters (often via `params`)
-  def show_rels_ext_records solr_parameters, user_parameters
 
+  # NOTE:  q is NOT changed and IS ASSUMED to be an id... but the parameter sent to solr IS CHANGED (to an internal_uri)
+  def show_rels_ext_records solr_parameters, user_parameters
     # Determine kind of search
     search = false
 
@@ -29,24 +30,14 @@ module MedusaPremis::SolrHelper::Relational
     end
 
     if (search)
-      results = MedusaPremis::General.ids_or_file(q, type_of_search)
+      # this is a related search, so "q" is the id that we will find in solr, which is really now an internal_uri converted from RELS-EXT
+      id = MedusaPremis::General.return_uri(q)
 
-      if (results[:type] == "ids")
-        # convert array of ids to fq statement
-        if (results[:ids_entity].nil?)
-          # force to return nothing
-          fq = "-id:*"
-        else
-          fq_value =  results[:ids_entity].map { |c| '"' + c.to_s + '"' }.join(" OR ")
-          fq = "id:(#{fq_value})"
-        end
-        solr_parameters[:fq] ||= []
-        solr_parameters[:fq] << fq
-      else
-        # file type
-        solr_parameters[:fl] = ["*, score, relate:field(#{results[:ids_entity]})"]
-        # sort first by 'relate'...
-        solr_parameters[:sort] = "{!func}#{results[:ids_entity]} desc, " + solr_parameters[:sort]
+      # what to do if nil??... skip adding solr parsm... otherwise, it will pick everything
+
+      # add internal_uri.... to actual id (which won't find anything... and there's no need to get rid of)
+      if (!id.nil?)
+        solr_parameters[:q] = "\{!qf=$related_to_qf pf=$related_to_pf\}#{id}"
       end
     end
   end

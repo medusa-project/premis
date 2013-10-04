@@ -27,7 +27,7 @@ module ApplicationHelper
       return nil
     end
 
-    relation = MedusaPremis::General.get_relations(id, related_id)
+    relation = MedusaPremis::General.get_relations_from_fedora(id, related_id)
     if (!relation.nil?)
       "<dt class=\"MedusaPremis-relation\">Relation</dt>
        <dd class=\"MedusaPremis-relation\">#{relation}</dd>".html_safe

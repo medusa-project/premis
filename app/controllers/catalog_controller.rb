@@ -193,6 +193,34 @@ class CatalogController < ApplicationController
       }
     end
 
+    config.add_search_field('file object') do |field|
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      # field.solr_parameters = { :'spellcheck.dictionary' => 'file_object' }
+
+      # :solr_local_parameters will be sent using Solr LocalParams
+      # syntax, as eg {! qf=$file_object_qf }. This is neccesary to use
+      # Solr parameter de-referencing like $file_object_qf.
+      # See: http://wiki.apache.org/solr/LocalParams
+      field.solr_local_parameters = {
+          :qf => '$file_object_qf',
+          :pf => '$file_object_pf'
+      }
+    end
+
+    config.add_search_field('representation object') do |field|
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      # field.solr_parameters = { :'spellcheck.dictionary' => 'representation_object' }
+
+      # :solr_local_parameters will be sent using Solr LocalParams
+      # syntax, as eg {! qf=$file_object_qf }. This is neccesary to use
+      # Solr parameter de-referencing like $representation_object_qf.
+      # See: http://wiki.apache.org/solr/LocalParams
+      field.solr_local_parameters = {
+          :qf => '$representation_object_qf',
+          :pf => '$representation_object_pf'
+      }
+    end
+
     config.add_search_field('rights statement') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params.
       # field.solr_parameters = { :'spellcheck.dictionary' => 'rights_statement' }

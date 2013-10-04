@@ -35,7 +35,7 @@
             those searches. You may also be interested in:
             http://wiki.apache.org/solr/LocalParams
        -->
-        <str name="qf">
+       <str name="qf">
           id
           all_text_timv
           active_fedora_model_ssi
@@ -56,46 +56,108 @@
           agentNote_tesim
           agentExtension_tesim
           agentType_tesim
-        </str>
-        <str name="pf">
+          objectCharacteristics_CompositionLevel_tesim
+          objectCharacteristics_tesim
+          objectCharacteristics_fixitymessageDigestAlgorithm_tesim
+          objectCharacteristics_fixitymessageDigestOriginator_tesim
+          objectCharacteristics_size_tesim
+          objectCharacteristics_formatName_tesim
+          objectCharacteristics_formatVersion_tesim
+          objectCharacteristics_formatRegistryName_tesim
+          objectCharacteristics_formatRegistryKey_tesim
+          objectCharacteristics_formatRegistryRole_tesim
+          objectCharacteristics_creatingApplicationName_tesim
+          objectCharacteristics_creatingApplicationVersion_tesim
+          objectCharacteristics_dateCreatedByApplication_tesim
+          objectPreservationLevelValue_tesim
+          objectPreservationLevelRationale_tesim
+          objectPreservationLevelDateAssigned_tesim
+          objectOriginalName_tesim
+       </str>
+       <str name="pf">
           all_text_timv^10
-        </str>
+       </str>
 
-      <str name="event_qf">
+       <str name="event_qf">
          eventType_tesim
          eventDateTime_tesim
          eventDetail_tesim
          eventOutcome_tesim
          eventOutcomeDetailNote_tesim
          eventOutcomeDetailExtension_tesim
-      </str>
-      <str name="event_pf">
-      </str>
+       </str>
+       <str name="event_pf">
+       </str>
 
-      <str name="rights_statement_qf">
+       <str name="rights_statement_qf">
          rightsStatementCopyrightStatus_tesim
          rightsStatementCopyrightJurisdiction_tesim
          rightsStatementLinkingObjectIdentifierType_GrantedAct_tesim
          rightsStatementGrantedRestriction_tesim
-      </str>
-      <str name="rights_statement_pf">
-      </str>
+       </str>
+       <str name="rights_statement_pf">
+       </str>
 
-      <str name="agent_qf">
+       <str name="agent_qf">
          agentName_tesim
          agentNote_tesim
          agentExtension_tesim
-         agentType_tesim
-      </str>
-      <str name="agent_pf">
-      </str>
+         agentType_tesim          8
+       </str>
+       <str name="agent_pf">
+       </str>
 
-      <str name="related_to_qf">
+       <str name="file_object_qf">
+         objectCharacteristics_CompositionLevel_tesim
+         objectCharacteristics_tesim
+         objectCharacteristics_fixitymessageDigestAlgorithm_tesim
+         objectCharacteristics_fixitymessageDigestOriginator_tesim
+         objectCharacteristics_size_tesim
+         objectCharacteristics_formatName_tesim
+         objectCharacteristics_formatVersion_tesim
+         objectCharacteristics_formatRegistryName_tesim
+         objectCharacteristics_formatRegistryKey_tesim
+         objectCharacteristics_formatRegistryRole_tesim
+         objectCharacteristics_creatingApplicationName_tesim
+         objectCharacteristics_creatingApplicationVersion_tesim
+         objectCharacteristics_dateCreatedByApplication_tesim
+         objectPreservationLevelValue_tesim
+         objectPreservationLevelRationale_tesim
+         objectPreservationLevelDateAssigned_tesim
+         objectOriginalName_tesim
+       </str>
+       <str name="file_object_pf">
+       </str>
+
+       <str name="representation_object_qf">
+         objectPreservationLevelValue_tesim
+         objectPreservationLevelRationale_tesim
+         objectPreservationLevelDateAssigned_tesim
+         objectOriginalName_tesim
+       </str>
+       <str name="file_object_pf">
+       </str>
+
+       <str name="related_to_qf">
+         <!-- this list is taken from predicates.yml configuration file -->
          linking_object_ssim
          linking_event_ssim
          linking_rights_statement_ssim
          linking_agent_ssim
          linking_folder_object_ssim
+         collection_is_member_of_ssim
+         derivation_has_source_ssim
+         derivation_has_source_hasevent_ssim
+         metadata_checksums_ssim
+         metadata_image_tech_ssim
+         metadata_marc_ssim
+         metadata_mods_ssim
+         paged_text_asset_hires_pdf_ssim
+         paged_text_asset_ocr_ssim
+         paged_text_asset_optimized_pdf_ssim
+         paged_text_asset_pages_ssim
+         paged_text_asset_parent_ssim
+         paged_text_asset_tei_ssim
        </str>
        <str name="related_to_pf">
        </str>
